@@ -14,11 +14,19 @@ function out() {
  var out = "";
   for (key in toDoList) {
     if (toDoList.check == true) {
-      out += "<input type='checkbox'> checked";
+      out += "<input id='checkbox' type='checkbox'> checked";
     }else {
-      out += "<input type='checkbox'>";
+      out += "<input id='checkbox' type='checkbox'>";
     }
     out += toDoList[key].todo + "<br>";
   }
   document.getElementById("out").innerHTML = out;
+  document.getElementById("in").value = "";
+
+  document.getElementById('checkbox').onclick = function() {
+    if ( this.checked ) {
+      var result = out.strike();
+      document.getElementById("out").innerHTML = result;
+    } 
+  }
 }
